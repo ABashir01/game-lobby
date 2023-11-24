@@ -28,8 +28,10 @@ io.on("connection", (socket) => {
             roomCode = randomInt(0,9999);
         }
         activeRooms.add(roomCode);
-        
+
         socket.join(roomCode);
         console.log("Lobby Time");
+
+        socket.emit("receive_code", roomCode);
     });
 });
